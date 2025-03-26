@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'UnifrakturCook', sans-serif;
+  margin-right: 30px;
+  color: #333 !important; /* Giữ màu chữ */
+  font-weight: 700;
+  text-decoration: none !important; /* Loại bỏ gạch chân */
+  font-size: 24px;
+}
+
+.logo a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.logo a:hover,
+.logo a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+}
+
+.nav-menu li {
+  margin-right: 20px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.nav-menu li a:hover {
+  color: #007bff;
+}
+
+.nav-menu li a.active {
+  color: #007bff;
+  font-weight: 700;
+}
+
+.nav-right .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* SUB-HEADER */
+.sub-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sub-header h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.search-box {
+  width: 250px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* CONTENT */
+.content {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* PAGE SECTION */
+.page-section {
+  display: block; /* Mỗi file JSP là 1 trang riêng */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.page-section h2 {
+  margin-bottom: 20px;
+}
+
+/* TABLE */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+thead {
+  background: #f1f3f5;
+}
+
+thead th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: #495057;
+  border-bottom: 1px solid #dee2e6;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+tbody td {
+  padding: 12px;
+  color: #495057;
+}
+
+/* IMAGE COLUMN - Hiển thị ảnh nhỏ vuông */
+.image-column img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* ICONS */
+.edit-icon {
+  color: #007bff;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.delete-icon {
+  color: #dc3545;
+  cursor: pointer;
+}
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.pagination a {
+  text-decoration: none;
+  color: #007bff;
+  border: 1px solid #ddd;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination a:hover {
+  background: #007bff;
+  color: #fff;
+}
+
+.pagination a.active {
+  background: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border-color: #007bff;
+}
+
