@@ -344,7 +344,7 @@ nav ul li {
     background: url("../images/banner.jpg") no-repeat center center fixed;
     background-size: cover;
     color: white;
-    font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
     text-align: center;
 }
 

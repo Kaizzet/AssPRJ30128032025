@@ -52,7 +52,7 @@ public class MainController extends HttpServlet {
 
                         // Kiểm tra role của user
                         if ("Quản trị viên".equalsIgnoreCase(user.getRole())) {
-                            response.sendRedirect("Ordersadmin.jsp"); // Admin vào trang quản lý
+                            response.sendRedirect("Homepageadmin.jsp"); // Admin vào trang quản lý
                         } else {
                             response.sendRedirect("MainController?action=loadProducts&page=1"); // User vào trang chính
                         }
