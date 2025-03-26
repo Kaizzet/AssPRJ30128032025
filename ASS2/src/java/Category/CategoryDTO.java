@@ -17,6 +17,14 @@ public class CategoryDTO {
         return categoryId;
     }
 
+    public CategoryDTO(int categoryId, String categoryName) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+    }
+
+    public CategoryDTO() {
+    }
+
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
     }

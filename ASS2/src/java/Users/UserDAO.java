@@ -139,7 +139,7 @@ public class UserDAO {
 
     // Thêm người dùng mới
    public static boolean insertUser(UserDTO user) {
-    String sql = "INSERT INTO Users (name, email, phone, address, role, created_at, password) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    String sql = "INSERT INTO Users (name, email, phone, address, role, created_at, password) VALUES (z?, ?, ?, ?, ?, ?, ?)";
     try (Connection conn = DBUtils.getConnection();
         PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 

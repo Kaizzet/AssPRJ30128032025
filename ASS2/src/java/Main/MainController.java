@@ -118,12 +118,21 @@ public class MainController extends HttpServlet {
 
                 case "loadCategory":
                     String categoryId = request.getParameter("category");
-                    List<ProductDTO> categoryProducts = productDAO.getProductsByCategory(categoryId);
+                    int categoryPage = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+                    int productsPerPageCategory = 12;
+
+                    List<ProductDTO> categoryProducts = productDAO.getProductsByCategoryAndPage(categoryId, categoryPage, productsPerPageCategory);
+                    int totalProductsInCategory = productDAO.getTotalProductsByCategory(categoryId);
+                    int totalPagesCategory = (int) Math.ceil((double) totalProductsInCategory / productsPerPageCategory);
+
                     List<CategoryDTO> allCategories = new CategoryDAO().getAllCategories();
 
                     request.setAttribute("products", categoryProducts);
                     request.setAttribute("categories", allCategories);
                     request.setAttribute("selectedCategory", categoryId);
+                    request.setAttribute("currentPage", categoryPage);
+                    request.setAttribute("totalPages", totalPagesCategory);
+
                     request.getRequestDispatcher("category.jsp").forward(request, response);
                     break;
 

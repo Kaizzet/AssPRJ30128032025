@@ -10,6 +10,49 @@ import utils.DBUtils;
 
 public class ProductDAO {
 
+    // Các phương thức hiện có giữ nguyên...
+
+    // ✅ Lấy sản phẩm theo danh mục và phân trang
+    public List<ProductDTO> getProductsByCategoryAndPage(String categoryId, int page, int productsPerPage) {
+        List<ProductDTO> productList = new ArrayList<>();
+        int offset = (page - 1) * productsPerPage;
+        String sql = "SELECT * FROM products WHERE category_id = ? ORDER BY created_at DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
+
+        try (Connection conn = DBUtils.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, categoryId);
+            ps.setInt(2, offset);
+            ps.setInt(3, productsPerPage);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                productList.add(mapResultSetToProduct(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productList;
+    }
+
+    // ✅ Đếm tổng số sản phẩm theo danh mục (Hỗ trợ phân trang)
+    public int getTotalProductsByCategory(String categoryId) {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM products WHERE category_id = ?";
+
+        try (Connection conn = DBUtils.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                count = rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
     // ✅ Lấy tất cả sản phẩm
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
