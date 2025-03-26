@@ -336,43 +336,34 @@ nav ul li {
     font-weight: bold;
     border: 1px solid #ddd;
 } 
-.create-account {
-    background-color: #ffa500; /* Màu cam */
-    color: black;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border-radius: 5px;
-}
-
-.create-account:hover {
-    background-color: #ff8c00; /* Màu cam đậm hơn khi hover */
-    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
-}
 
 
-/* Chỉ áp dụng ảnh nền cho trang đăng ký */
+
+/* Trang nền */
 .register-page {
     background: url("../images/banner.jpg") no-repeat center center fixed;
     background-size: cover;
     color: white;
+    font-family: Arial, sans-serif;
     text-align: center;
 }
 
-
 /* Container đăng ký */
 .register-container {
-    width: 300px;
+    width: 350px;
     margin: 50px auto;
     padding: 20px;
+    background-color: rgba(255, 255, 255, 0.13); /* Màu nền mờ */
+    backdrop-filter: blur(5px); /* Hiệu ứng làm mờ */
+    border: 5px solid rgba(0, 0, 0, 0.2); /* Viền đen mờ */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* Đổ bóng đen */
+    border-radius: 17px;
 }
 
 /* Tiêu đề */
 .register-container h2 {
-    font-size: 24px;
+    font-size: 28px;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
@@ -381,30 +372,38 @@ input[type="text"],
 input[type="email"], 
 input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: 1px solid white;
-    background-color: black;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.22);
     color: white;
+    border-radius: 5px;
+}
+
+/* Hover và focus cho input */
+input:hover, input:focus {
+    background: #434343;
+    transition: all 0.5s ease;
 }
 
 /* Nút đăng ký */
 button.create-account {
     width: 100%;
     padding: 10px;
-    background-color: #FFA500;
-    border: none;
-    font-size: 16px;
+    background: rgba(0, 0, 0, 0.22);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    color: #e1e1e1;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    color: black;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hiệu ứng hover cho nút */
+/* Hiệu ứng hover */
 button.create-account:hover {
-    background-color: #FF8C00; /* Màu cam đậm hơn khi hover */
-    transform: scale(1.05); /* Phóng to nhẹ */
-    color: white;
+    background-color: #666;
+    transform: scale(1.05);
 }
 
 /* Link quay lại */
@@ -416,72 +415,104 @@ button.create-account:hover {
     transition: color 0.3s ease;
 }
 .back-link:hover {
-    color: threedlightshadow;
+    color: #FFA500;
 }
+
 /* Định dạng chung cho trang đăng nhập */
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Background */
 .login-page {
     background: url("../images/banner.jpg") no-repeat center center fixed;
     background-size: cover;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 /* Container đăng nhập */
 .login-container {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 50px;
+    border-radius: 17px;
+    backdrop-filter: blur(5px);
+    border: 5px solid rgba(255, 255, 255, 0.1);
+     box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: white;
 }
 
 /* Tiêu đề */
 .login-container h2 {
-    font-size: 24px;
+    font-size: 32px;
     margin-bottom: 20px;
 }
 
 /* Ô nhập liệu */
-input[type="text"], 
+input[type="email"],
 input[type="password"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
-    border: 1px solid white;
-    background-color: black;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
     color: white;
+    font-size: 16px;
+}
+
+/* Placeholder */
+::placeholder {
+    color: #e5e5e5;
+}
+
+/* Hiệu ứng hover và focus */
+input:hover, input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.5s ease;
+    outline: none;
 }
 
 /* Nút đăng nhập */
 button.login-button {
     width: 100%;
-    padding: 10px;
-    background-color: #FFA500;
-    border: none;
-    font-size: 16px;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    color: #f5f5f5;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    color: black;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: all 0.5s ease;
 }
 
-/* Hiệu ứng hover cho nút */
 button.login-button:hover {
-    background-color: #FF8C00; /* Màu cam đậm hơn khi hover */
-    transform: scale(1.05); /* Phóng to nhẹ */
-    color: white;
+    background: #495057;
+    transform: scale(1.05);
 }
 
 /* Link quên mật khẩu và đăng ký */
 .forgot-password, .register-link {
+    margin-bottom: 10px;
     display: block;
     margin-top: 10px;
-    color: white;
-    text-decoration: underline;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
     transition: color 0.3s ease;
 }
 
-/* Hiệu ứng hover cho link */
 .forgot-password:hover, .register-link:hover {
-    color: threedlightshadow; 
+    color: #FFA500;
 }
 
 .add-to-cart {

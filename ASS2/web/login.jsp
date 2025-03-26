@@ -17,7 +17,7 @@
             <input type="hidden" name="action" value="login">
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Mật khẩu" required>
-            <a href="javascript:void(0)" class="forgot-password">Quên mật khẩu?</a>
+            <a href="javascript:void(0)"  class="forgot-password">Quên mật khẩu?</a>
             <button type="submit" class="login-button">Đăng nhập</button>
         </form>
 
