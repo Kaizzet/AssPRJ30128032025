@@ -11,7 +11,6 @@ import utils.DBUtils;
 public class ProductDAO {
 
     // Các phương thức hiện có giữ nguyên...
-
     // ✅ Lấy sản phẩm theo danh mục và phân trang
     public List<ProductDTO> getProductsByCategoryAndPage(String categoryId, int page, int productsPerPage) {
         List<ProductDTO> productList = new ArrayList<>();
@@ -19,7 +18,7 @@ public class ProductDAO {
         String sql = "SELECT * FROM products WHERE category_id = ? ORDER BY created_at DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, categoryId);
             ps.setInt(2, offset);
             ps.setInt(3, productsPerPage);
@@ -40,7 +39,7 @@ public class ProductDAO {
         String sql = "SELECT COUNT(*) FROM products WHERE category_id = ?";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, categoryId);
             ResultSet rs = ps.executeQuery();
 
@@ -59,8 +58,8 @@ public class ProductDAO {
         String sql = "SELECT * FROM products";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 products.add(mapResultSetToProduct(rs));
@@ -77,7 +76,7 @@ public class ProductDAO {
         String sql = "SELECT * FROM products WHERE category_id = ? ORDER BY created_at DESC";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, categoryId);
             ResultSet rs = ps.executeQuery();
 
@@ -97,7 +96,7 @@ public class ProductDAO {
         String sql = "SELECT * FROM products ORDER BY created_at DESC OFFSET ? ROWS FETCH NEXT ? ROWS ONLY";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, offset);
             ps.setInt(2, productsPerPage);
             ResultSet rs = ps.executeQuery();
@@ -117,8 +116,8 @@ public class ProductDAO {
         String sql = "SELECT COUNT(*) FROM products";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql);
-             ResultSet rs = ps.executeQuery()) {
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()) {
 
             if (rs.next()) {
                 count = rs.getInt(1);
@@ -129,12 +128,30 @@ public class ProductDAO {
         return count;
     }
 
+    public List<ProductDTO> searchProducts(String keyword) {
+        List<ProductDTO> productList = new ArrayList<>();
+        String sql = "SELECT * FROM products WHERE name LIKE ?";
+
+        try (Connection conn = DBUtils.getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, "%" + keyword + "%");
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                productList.add(mapResultSetToProduct(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return productList;
+    }
+
     // ✅ Lấy sản phẩm theo ID (Fix lỗi UnsupportedOperationException)
     public ProductDTO getProductById(int productId) {
         String sql = "SELECT * FROM products WHERE product_id = ?";
 
         try (Connection conn = DBUtils.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, productId);
             ResultSet rs = ps.executeQuery();
 

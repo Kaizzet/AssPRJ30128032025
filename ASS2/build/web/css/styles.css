@@ -728,6 +728,83 @@ td {
     
 }
 
+/* Căn thanh tìm kiếm về bên trái */
+.search-container {
+    position: absolute;
+    top: 80px; /* Điều chỉnh khoảng cách từ trên xuống */
+    right: 20px; /* Đưa về sát cạnh trái */
+    display: flex;
+    align-items: center;
+}
+
+/* Định dạng form tìm kiếm */
+.search-form {
+    height: 50px;
+    display: flex;
+    width: 250px;
+    border: 2px solid #ddd;
+    border-radius: 25px;
+    padding: 5px 10px;
+    background: black;
+}
+
+/* Ô nhập liệu */
+.search-form input[type="text"] {
+    flex: 1;
+    border: none;
+    padding: 8px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 20px;
+    color: #f5f5f5; /* Chữ màu đen */
+    background: transparent;    
+}
+
+/* Nút tìm kiếm */
+.search-form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.search-form button:hover {
+    background-color: #555;
+}
+
+.product-lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Căn đều các sản phẩm */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    padding: 20px;
+}
+
+.product-search {
+    flex: 1 1 calc(33.333% - 20px); /* Chia thành 3 cột trên một dòng, trừ khoảng cách */
+    max-width: calc(33.333% - 20px);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.product-search img {
+    width: 100%;  /* Ảnh rộng 100% container */
+    height: 400px; /* Đặt chiều cao cố định */
+    object-fit: cover; /* Cắt ảnh để vừa khung mà không méo */
+    border-radius: 5px;
+}
+
+.head-search {
+    text-align: center;
+    margin-top: 15px;
+    
+}
 
 
 

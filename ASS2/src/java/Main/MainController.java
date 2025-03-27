@@ -96,6 +96,14 @@ public class MainController extends HttpServlet {
                         request.getRequestDispatcher("register.jsp").forward(request, response);
                     }
                     break;
+                case "search":
+                    String keyword = request.getParameter("keyword");
+                    ProductDAO daos = new ProductDAO();
+                    List<ProductDTO> searchResults = daos.searchProducts(keyword);
+
+                    request.setAttribute("products", searchResults);
+                    request.getRequestDispatcher("search.jsp").forward(request, response);
+                    break;
 
                 case "loadProducts":
                     int page = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;

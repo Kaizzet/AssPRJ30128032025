@@ -28,29 +28,30 @@
 <body class="body-main">
 
     <header>
-        <nav>
-            <ul>
-                <li class="dropdown">
-                    <a href="#">MENU</a>
-                    <ul class="dropdown-content">
-                        <% if (categories != null && !categories.isEmpty()) {
-                            for (CategoryDTO category : categories) { %>
-                        <li>
-                            <a href="MainController?action=loadCategory&category=<%= category.getCategoryId()%>">
-                                <%= category.getCategoryName()%>
-                            </a>
-                        </li>
-                        <%  }
-                        } else { %>
-                        <li><a href="#">Không có danh mục</a></li>
-                        <% } %>
-                    </ul>
-                </li>
-            </ul>
-        </nav>       
-        <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#">MENU</a>
+                <ul class="dropdown-content">
+                    <% if (categories != null && !categories.isEmpty()) {
+                        for (CategoryDTO category : categories) { %>
+                    <li>
+                        <a href="MainController?action=loadCategory&category=<%= category.getCategoryId()%>">
+                            <%= category.getCategoryName()%>
+                        </a>
+                    </li>
+                    <%  }
+                    } else { %>
+                    <li><a href="#">Không có danh mục</a></li>
+                    <% } %>
+                </ul>
+            </li>
+        </ul>
+    </nav>   
 
-        <div class="user-options">
+    <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
+    
+    <div class="user-options">
             <%
                 UserDTO loggedInUsers = (UserDTO) session.getAttribute("loggedInUser");
                 if (loggedInUsers != null) {
@@ -65,17 +66,29 @@
                 }
             %>
 
-            <% if (loggedInUser == null) { %>
-            <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
-            <span style="color: white">/</span> 
-            <a style="color: white" href="<%= request.getContextPath()%>/login.jsp">Đăng nhập</a>
-            <% } else { %>
-            <span style="color: white">Xin chào, <%= loggedInUser.getRole().equalsIgnoreCase("admin") ? "Admin" : loggedInUser.getName()%></span>
-            <span style="color: white">|</span>
-            <a style="color: white" href="MainController?action=logout">Đăng xuất</a>
-            <% } %>
+    <!-- 🔍 Thêm thanh tìm kiếm vào đây -->
+    <div class="search-container">
+    <form action="MainController" method="get" class="search-form">
+        <input type="hidden" name="action" value="search">
+        <input type="text" name="keyword" placeholder="Tìm kiếm sản phẩm...">
+        <button type="submit">🔍</button>
+    </form>
+</div>
 
-            <div class="cart">
+
+    <div class="user-options">
+        <% if (loggedInUser == null) { %>
+        <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
+        <span style="color: white">/</span> 
+        <a style="color: white" href="<%= request.getContextPath()%>/login.jsp">Đăng nhập</a>
+        <% } else { %>
+        <span style="color: white">Xin chào, <%= loggedInUser.getRole().equalsIgnoreCase("admin") ? "Admin" : loggedInUser.getName()%></span>
+        <span style="color: white">|</span>
+        <a style="color: white" href="MainController?action=logout">Đăng xuất</a>
+        <% } %>
+    </div>
+    
+    <div class="cart">
                 <a href="#">🛒</a>
                 <div class="cart-dropdown">
                     <% if (cart != null && !cart.isEmpty()) {
@@ -100,7 +113,8 @@
                 </div>
             </div>
         </div>
-    </header>
+</header>
+
 
     <section class="banner">
         <img src="https://raw.githubusercontent.com/tuanptse/ASSprj/main/ASS2/web/images/banner.jpg" alt="Helios Banner">
