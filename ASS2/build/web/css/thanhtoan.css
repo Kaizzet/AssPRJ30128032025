@@ -1,0 +1,237 @@
+/* RESET CƠ BẢN */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY CHUNG */
+body {
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: #000; /* Nền đen */
+    color: #fff;            /* Chữ trắng */
+    line-height: 1.4;
+}
+
+/* HEADER */
+.header {
+    background-color: #111;
+    padding: 10px 20px;
+}
+.header .logo h1 {
+    margin: 0;
+    color: #fff;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #000;  /* Nền đen */
+    color: #fff;            /* Chữ trắng */
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column; /* Xếp các phần tử theo chiều dọc */
+    align-items: flex-start; /* Căn nội dung về bên trái */
+    padding-left: 20px; /* Thêm khoảng cách với lề trái nếu cần */             /* Khoảng cách giữa các cột */
+}
+
+.footer-column {
+    flex: 1 1 250px;        /* Mỗi cột chiếm ít nhất 250px, co giãn tuỳ màn hình */
+    min-width: 200px;
+}
+
+.footer-column h2 {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.footer-column p,
+.footer-column ul {
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 6px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #ccc;
+    transition: color 0.3s;
+}
+.footer-column ul li a:hover {
+    color: #ffcc00;         /* Màu vàng khi hover */
+}
+
+/* Logo Bộ Công Thương (hoặc bất kỳ badge nào) */
+.bocongthuong {
+    margin-top: 10px;
+    width: 80px;            /* Tuỳ chỉnh kích thước */
+    height: auto;
+    display: block;
+}
+
+/* CONTAINER CHÍNH */
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap; /* Để responsive trên màn hình nhỏ */
+    padding: 20px;
+    gap: 20px;
+}
+
+/* CỘT BÊN TRÁI */
+.checkout-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* CỘT BÊN PHẢI */
+.checkout-right {
+    width: 350px; /* Độ rộng cố định cho tóm tắt đơn hàng */
+    min-width: 300px;
+}
+
+/* TIÊU ĐỀ SECTION */
+.section-contact h2,
+.section-shipping h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffcc00; /* Màu vàng nhấn */
+}
+
+/* NHÓM INPUT */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.input-group label {
+    margin-bottom: 5px;
+    color: #ccc;
+    font-size: 14px;
+}
+.input-group input,
+.input-group select {
+    padding: 10px;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #fff;
+    outline: none;
+}
+.input-group input::placeholder {
+    color: #666;
+}
+
+/* DÒNG INPUT GHÉP ĐÔI (VD: Tên & Họ) */
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+.input-row .input-group {
+    flex: 1;
+}
+
+/* CHECKBOX GROUP */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.checkbox-group input {
+    margin-right: 5px;
+}
+
+/* PHƯƠNG THỨC VẬN CHUYỂN */
+.section-delivery h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+.delivery-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.delivery-option label {
+    margin-left: 5px;
+    color: #ccc;
+}
+
+/* CỘT BÊN PHẢI: TÓM TẮT ĐƠN HÀNG */
+.order-summary {
+    background-color: #111;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 4px;
+}
+.summary-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.summary-item img {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    object-fit: cover;
+}
+.item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.item-name {
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+.item-size {
+    color: #aaa;
+    margin-bottom: 2px;
+}
+.item-price {
+    color: #ffcc00;
+}
+
+/* PHÂN CÁCH */
+hr {
+    border: none;
+    border-top: 1px solid #333;
+    margin: 15px 0;
+}
+
+/* TÓM TẮT PHÍ */
+.summary-fee .fee-row,
+.summary-total .fee-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.total-label {
+    font-weight: bold;
+}
+.total-amount {
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.checkout-btn {
+    display: block; text-align: center; background: #28a745; color: white;
+    padding: 10px; border-radius: 5px; text-decoration: none; margin-top: 20px;
+}
+.checkout-btn:hover { 
+    background: #218838; 
+}
