@@ -34,11 +34,10 @@ body {
 }
 
 .footer-container {
-    width: 90%;
-    margin: 0 auto;         /* Căn giữa */
     display: flex;
-    flex-wrap: wrap;        /* Để responsive trên màn hình nhỏ */
-    gap: 30px;              /* Khoảng cách giữa các cột */
+    flex-direction: column; /* Xếp các phần tử theo chiều dọc */
+    align-items: flex-start; /* Căn nội dung về bên trái */
+    padding-left: 20px; /* Thêm khoảng cách với lề trái nếu cần */             /* Khoảng cách giữa các cột */
 }
 
 .footer-column {

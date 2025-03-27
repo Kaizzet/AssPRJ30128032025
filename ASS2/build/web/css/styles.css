@@ -599,17 +599,6 @@ button.login-button:hover {
     color: #ddd;
 }
 
-.cart-item-remove {
-    cursor: pointer;
-    color: #ff4d4d;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-.cart-item-remove:hover {
-    color: #ff0000;
-    transform: scale(1.2);
-}
 
 .cart a {
     text-decoration: none;

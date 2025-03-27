@@ -28,43 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= categoryName != null ? categoryName : "Danh mục sản phẩm"%></title>
     <link rel="stylesheet" href="<%= request.getContextPath()%>/css/styles.css">
-    <style>
-        .cart-dropdown {
-            display: none;
-            position: absolute;
-            background-color: white;
-            border: 1px solid #ccc;
-            width: 300px;
-            right: 0;
-            top: 30px;
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-        }
-        .cart:hover .cart-dropdown {
-            display: block;
-        }
-        .cart-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .cart-item img {
-            width: 50px;
-            height: 50px;
-            margin-right: 10px;
-            border-radius: 5px;
-        }
-        .cart-item-details {
-            flex-grow: 1;
-        }
-        .cart-item-remove {
-            cursor: pointer;
-            color: red;
-        }
-    </style>
+    
 </head>
 <body>
 
@@ -96,10 +60,7 @@
             </a>
         </div>
 
-        <div class="user-options">
-            <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
-            <span style="color: white">/</span> 
-            <a style="color: white" href="<%= request.getContextPath()%>/login.jsp"> Đăng nhập</a>
+        
             <div class="cart">
                 <a href="#">🛒</a>
                 <div class="cart-dropdown">
